@@ -23,10 +23,10 @@ export default new VueRouter({
 
   mode: 'hash',
   scrollBehavior: () => ({ y: 0 }),
-
   routes: [
     { path: '/', component: load('Hello') },
-
+    { path: '/register', component: load('Register') },
+    { path: '/home', component: load('Home') },
     // Always leave this last one
     { path: '*', component: load('Error404') } // Not found
   ]

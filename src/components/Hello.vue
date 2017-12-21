@@ -1,20 +1,10 @@
 <template>
-  <q-layout
-    ref="layout"
-    view="lHh Lpr fff"
-    :left-class="{'bg-grey-2': true}"
-  >
+  <q-layout ref="layout" view="lHh Lpr fff" :left-class="{'bg-grey-2': true}">
     <q-toolbar slot="header" class="glossy">
-      <q-btn
-        flat
-        @click="$refs.layout.toggleLeft()"
-      >
-        <q-icon name="menu" />
+      <q-btn flat @click="$refs.layout.toggleLeft()">
+        <div><img class="smile-logo" src="../assets/smilez.png"/></div>
       </q-btn>
-
-      <q-toolbar-title>
-        Quasar App
-        <div slot="subtitle">Running on Quasar v{{$q.version}}</div>
+      <q-toolbar-title> Feeling Me <div slot="subtitle">Check in to yourself.</div>
       </q-toolbar-title>
     </q-toolbar>
 
@@ -207,6 +197,7 @@ export default {
 </script>
 
 <style lang="sass-loader">
+@import '../assets/styles/variables.scss';
 .logo-container {
   width: 255px;
   height: 242px;
@@ -215,5 +206,10 @@ export default {
   top: 50%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
+}
+.smile-logo {
+  left: 2%;
+  max-width: 40px;
+  height: auto;
 }
 </style>
