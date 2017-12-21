@@ -4,8 +4,7 @@
       <q-btn flat @click="$refs.layout.toggleLeft()">
         <div><img class="smile-logo pointer" src="../../assets/smilez.png"/></div>
       </q-btn>
-      <q-toolbar-title> Feeling Me <div slot="subtitle">Check in to yourself.</div>
-      </q-toolbar-title>
+      <q-toolbar-title> {{header}}</q-toolbar-title>
     </q-toolbar>
     <div slot="left">
       <div>blahahahha</div>
@@ -19,7 +18,9 @@ import { QLayout, dom, QToolbar, QToolbarTitle, QBtn } from 'quasar'
 export default {
   name: 'Nav',
   data () {
-    return {}
+    return {
+      header: 'Feeling Me.'
+    }
   },
   components: { QLayout, dom, QToolbar, QToolbarTitle, QBtn }
 }
@@ -28,14 +29,16 @@ export default {
 <style lang="sass-loader" scoped>
   @import '../../assets/styles/variables.scss';
   .q-toolbar {
+    font-weight: 500;
     background-color: $red;
-    color: $blue;
+    color: $yellow;
     .q-toolbar-title {
-      padding: 0 20px;
+      letter-spacing: 1.1px;
+      text-align: right;
     }
   }
   .smile-logo {
-    max-width: 35px;
+    max-width: 30px;
     height: auto;
   }
 </style>

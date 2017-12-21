@@ -18,6 +18,7 @@ export default {
 <style lang="sass-loader">
 @import '../../assets/styles/variables.scss';
   .footer-wrapper {
+    font-weight: 500;
     position: fixed;
     bottom: 0px;
     left: 0;
