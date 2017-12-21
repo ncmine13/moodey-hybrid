@@ -1,5 +1,5 @@
 <template>
-  <div class="footer-wrapper glossy">
+  <div class="footer-wrapper rounded">
     <div v-html="message"></div>
   </div>
 </template>
@@ -9,7 +9,7 @@ export default {
   name: 'Footer',
   data () {
     return {
-      message: '&#169 product of naomi'
+      message: '&#169 NaomiMine'
     }
   }
 }
@@ -22,10 +22,10 @@ export default {
     bottom: 0px;
     left: 0;
     width: 100%;
-    font-size: 10px;
+    font-size: 12px;
     padding: 10px 0;
     text-align: center;
     background-color: $red;
-    color: $yellow;
+    color: $blue;
   }
 </style>

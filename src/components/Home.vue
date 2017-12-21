@@ -31,9 +31,4 @@ export default {
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
 }
-.smile-logo {
-  left: 2%;
-  max-width: 40px;
-  height: auto;
-}
 </style>
