@@ -1,6 +1,6 @@
 <template>
   <div class="progress-wrapper">
-    <div>{{ msg }}</div>
+    <div><img src="../assets/progress.jpg"/></div>
   </div>
 </template>
 
@@ -19,10 +19,9 @@ export default {
   @import '../assets/styles/variables.scss';
   .progress-wrapper {
     & > div {
-      width: 100%;
-      height: 200px;
-      background-color: $gray;
-      color: white;
+      img {
+        width: 100%;
+      }
     }
   }
 </style>

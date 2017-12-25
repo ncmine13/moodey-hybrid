@@ -29,9 +29,18 @@ export default new VueRouter({
       path: '/home',
       component: load('Home'),
       children: [
-        { path: 'check', component: load('Check') },
-        { path: 'preferences', component: load('Preferences') },
-        { path: 'trends', component: load('Trends') }
+        {
+          path: 'check',
+          component: load('Check')
+        },
+        {
+          path: 'preferences',
+          component: load('Preferences')
+        },
+        {
+          path: 'trends',
+          component: load('Trends')
+        }
       ]
     },
     // Always leave this last one
