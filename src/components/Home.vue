@@ -9,15 +9,15 @@
     <router-view />
     <!-- footer on every page -->
     <q-tabs color="tabs" slot="footer">
-      <q-route-tab name="check-in" to="/home/check" slot="title">check</q-route-tab>
-      <q-route-tab name="preferences" to="/home/preferences" slot="title">pref</q-route-tab>
-      <q-route-tab name="trends" to="/home/trends" slot="title">trends</q-route-tab>
+      <q-route-tab name="check-in" to="/home/check" slot="title"><q-icon name="check_circle"/></q-route-tab>
+      <q-route-tab name="preferences" to="/home/preferences" slot="title"><q-icon name="star_border"/></q-route-tab>
+      <q-route-tab name="trends" to="/home/trends" slot="title"><q-icon name="trending_up"/></q-route-tab>
     </q-tabs>
   </q-layout>
 </template>
 
 <script>
-import { QLayout, QToolbar, QRouteTab, QTabs, QToolbarTitle, dom } from 'quasar'
+import { QLayout, QToolbar, QRouteTab, QTabs, QToolbarTitle, dom, QIcon } from 'quasar'
 export default {
   name: 'Home',
   data () {
@@ -26,7 +26,7 @@ export default {
     }
   },
   components: {
-    QLayout, QToolbar, QRouteTab, QTabs, QToolbarTitle, dom
+    QLayout, QToolbar, QRouteTab, QTabs, QToolbarTitle, dom, QIcon
   }
 }
 </script>
@@ -51,6 +51,9 @@ export default {
   width: 100%;
   .q-tab {
     font-weight: 800;
+    .q-icon {
+      font-size: 20px;
+    }
   }
 }
 .router-link-exact-active {
