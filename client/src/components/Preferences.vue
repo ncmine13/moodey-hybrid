@@ -2,7 +2,7 @@
   <div class="site-width">
     <div class="text-header">  {{ headerTxt }} </div>
     <div :key="option.id" v-for="option in trackingOptions">
-      <div class="toggle-wrapper"><q-toggle v-model="selected" :val="option.value" left-label:true :label="option.label"></q-toggle></div>
+      <div class="toggle-wrapper"><q-toggle @click="toggleSelected(option.value)" v-model="selected" :val="option.value" left-label:true :label="option.label"></q-toggle></div>
     </div>
   </div>
 </template>
@@ -21,6 +21,11 @@ export default {
         {value: 'menstruation', label: 'Period tracker'},
         {value: 'sex', label: 'Sexual activity'}
       ]
+    }
+  },
+  methods: {
+    toggleSelected (value) {
+      // store in vuex, at end of session check if patch to user preferences needs to be made
     }
   },
   components: {
