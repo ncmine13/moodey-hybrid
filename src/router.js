@@ -24,9 +24,16 @@ export default new VueRouter({
   mode: 'hash',
   scrollBehavior: () => ({ y: 0 }),
   routes: [
-    { path: '/', component: load('Hello') },
     { path: '/register', component: load('Register') },
-    { path: '/home', component: load('Home') },
+    {
+      path: '/home',
+      component: load('Home'),
+      children: [
+        { path: 'check', component: load('Check') },
+        { path: 'preferences', component: load('Preferences') },
+        { path: 'trends', component: load('Trends') }
+      ]
+    },
     // Always leave this last one
     { path: '*', component: load('Error404') } // Not found
   ]
