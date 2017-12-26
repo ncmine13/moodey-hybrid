@@ -13,6 +13,7 @@ require(`./themes/app.${__THEME}.styl`)
 import Vue from 'vue'
 import Quasar from 'quasar'
 import router from './router'
+import { sync } from 'vuex-router-sync'
 import {store} from './store'
 
 Vue.config.productionTip = false
@@ -20,6 +21,7 @@ Vue.use(Quasar) // Install Quasar Framework
 // if (__THEME === 'mat') {
 //   require('quasar-extras/roboto-font')
 // }
+sync(store, router)
 import 'quasar-extras/material-icons'
 // import 'quasar-extras/ionicons'
 // import 'quasar-extras/fontawesome'
