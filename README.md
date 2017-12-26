@@ -19,3 +19,6 @@ $ quasar lint
 ```
 
 References:
+
+freeCodeCamp tutorial by Cody Seibert: Full Stack Web App Using Vue.js and Express.js
+Quasar docs

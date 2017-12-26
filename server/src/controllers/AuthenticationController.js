@@ -30,14 +30,14 @@ module.exports = {
       })
       // error for not finding this user's email
       if(!user) {
-        res.status(403).send({
+        return res.status(403).send({
           error: 'The login information was incorrect.'
         })
       }
       // error for not entering correct password (indistinguishable from other email address)
-      const isPasswordValid = password === user.password
-      if(!isPasswordValid) {
-        res.status(403).send({
+      const isPasswordValid = await user.comparePassword(password)
+      if (!isPasswordValid) {
+        return res.status(403).send({
           error: 'The login information was incorrect.'
         })
       }
