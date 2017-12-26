@@ -9,5 +9,9 @@ module.exports = {
       host: process.env.HOST || 'localhost',
       storage: './moodey.sqlite'
     }
+  },
+  authentication: {
+    //  secret determines validity of the specific token
+    jwtSecret: process.env.JWT_SECRET || 'secret'
   }
 }

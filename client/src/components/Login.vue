@@ -1,10 +1,10 @@
 <template>
-  <div class="registration__wrapper site-width">
-    <h1>Sign up for your account.</h1>
+  <div class="login__wrapper site-width">
+    <h1>Login to your account.</h1>
     <div><input class="input-styles" type="email" name="email" placeholder="email" v-model="email"/></div>
     <div><input class="input-styles" type="password" name="password" placeholder="password" v-model="password"/></div>
-    <button class="input-styles" v-on:click="register()">Register.</button>
-    <button class="input-styles" @click="swap()"> Have an account? Log in. </button>
+    <button class="input-styles" v-on:click="login()">Login.</button>
+    <button class="input-styles" @click="swap()"> Need an account? Register. </button>
     <div class="error" v-html="error"></div>
   </div>
 </template>
@@ -22,9 +22,9 @@ export default {
     }
   },
   methods: {
-    async register () {
+    async login () {
       try {
-        const response = await AuthenticationService.register({
+        const response = await AuthenticationService.login({
           email: this.email,
           password: this.password
         })
@@ -35,7 +35,7 @@ export default {
       }
     },
     swap () {
-      this.$router.push('login')
+      this.$router.push('register')
     }
   },
   components: {
@@ -45,7 +45,7 @@ export default {
 
 <style lang="sass-loader" scoped>
 @import '../assets/styles/variables.scss';
-.registration {
+.login {
   &__wrapper {
     color: $purple;
     width: 80%;

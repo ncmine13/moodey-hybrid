@@ -1,19 +1,16 @@
 <template>
   <!-- Don't drop "q-app" class -->
   <div id="q-app">
-    <home-component></home-component>
+    <router-view/>
   </div>
 </template>
 
 <script>
-import homeComponent from './components/Home'
 /*
  * Root component
  */
 export default {
-  components: {
-    homeComponent
-  }
+  name: 'app'
 }
 </script>
 
@@ -21,6 +18,9 @@ export default {
 @import './assets/styles/variables.scss';
 body {
   font-family: 'Raleway', sans-serif;
+  textarea:focus, input:focus {
+    outline: none;
+  }
 }
 .pointer {
   cursor: pointer;
@@ -37,5 +37,4 @@ body {
 .site-width {
   padding: 0 $spacer * 0.75;
 }
-
 </style>
