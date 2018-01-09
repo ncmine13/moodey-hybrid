@@ -28,10 +28,9 @@ export default {
           email: this.email,
           password: this.password
         })
-        console.log(response.data)
         // call action to set token in state, allowing for loading of individual user's settings
-        this.$store.dispatch('setToken', response.data.token)
-        this.$store.dispatch('setUser', response.data.user)
+        this.$store.dispatch('setUserInfo', response.data)
+        this.$router.push('/home/' + response.data.user.id)
       }
       catch (err) {
         this.error = err.response.data.error

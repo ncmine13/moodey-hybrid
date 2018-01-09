@@ -19,7 +19,6 @@ fs
   .forEach((file) => {
     const model = sequelize.import(path.join(__dirname, file))
     db[model.name] = model
-    console.log(config.db.options, config.port, config.db)
   })
 
   db.sequelize = sequelize

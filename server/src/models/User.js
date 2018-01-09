@@ -25,13 +25,11 @@ module.exports = (sequelize, DataTypes) => {
     password: DataTypes.STRING
   }, {
     hooks: {
-      //  took out other two hooks because password was rehashing and password not matching hash, will revisit
-      // beforeCreate: hashPassword,
-      // beforeUpdate: hashPassword,
+//  took out other two hooks because password was rehashing and password not matching hash, will revisit: beforeCreate: hashPassword, beforeUpdate: hashPassword,
       beforeSave: hashPassword
     }
   })
-  //  making user model vs. the controller do the password comparison when logging in
+//  making user model vs. the controller do the password comparison when logging in
   User.prototype.comparePassword = function (password) {
     return bcrypt.compareAsync(password, this.password)
   }
