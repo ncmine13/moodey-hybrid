@@ -7,6 +7,9 @@ function load (component) {
   // '@' is aliased to src/components
   return () => import(`@/${component}.vue`)
 }
+function loadSub (dir, component) {
+  return () => import(`@/${dir}/${component}.vue`)
+}
 
 export default new VueRouter({
   mode: 'history',
@@ -14,6 +17,7 @@ export default new VueRouter({
   routes: [
     { path: '/register', component: load('Register') },
     { path: '/login', component: load('Login') },
+    { path: '/profile', component: loadSub('profile', 'ProfileWrapper') },
     {
       path: '/home/:id',
       component: load('Home'),

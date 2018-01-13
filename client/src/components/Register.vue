@@ -31,6 +31,7 @@ export default {
           password: this.password
         })
         this.$store.dispatch('setUserInfo', response.data)
+        // push to route
       }
       catch (err) {
         this.error = err.response.data.error
