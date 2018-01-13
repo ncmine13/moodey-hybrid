@@ -70,13 +70,14 @@ export default {
   width: 100%;
   .q-tab {
     font-weight: 800;
+    color: $purple;
     .q-icon {
       font-size: 20px;
     }
   }
 }
-.router-link-exact-active {
-  background-color: $blue;
-  color: $purple;
+.q-tab.router-link-exact-active {
+  background-color: $red;
+  color: white;
 }
 </style>

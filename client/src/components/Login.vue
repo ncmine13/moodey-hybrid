@@ -30,7 +30,7 @@ export default {
         })
         // call action to set token in state, allowing for loading of individual user's settings
         this.$store.dispatch('setUserInfo', response.data)
-        this.$router.push('/home/' + response.data.user.id)
+        this.$router.push('/home/' + response.data.user.id + '/check')
       }
       catch (err) {
         this.error = err.response.data.error
@@ -50,9 +50,8 @@ export default {
 .login {
   &__wrapper {
     color: $purple;
-    width: 80%;
-    margin: 0 10%;
-    margin-top: 60px;
+    max-width: 600px;
+    margin: 60px auto;
     h1 {
       margin-bottom: 0;
       font-size: 30px;

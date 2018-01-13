@@ -50,9 +50,8 @@ export default {
 .registration {
   &__wrapper {
     color: $purple;
-    width: 80%;
-    margin: 0 10%;
-    margin-top: 60px;
+    max-width: 600px;
+    margin: 60px auto;
     h1 {
       margin-bottom: 0;
       font-size: 30px;

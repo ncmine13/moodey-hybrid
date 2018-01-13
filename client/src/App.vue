@@ -26,7 +26,7 @@ body {
   cursor: pointer;
 }
 .bg-tabs {
-  background-color: $red;
+  background-color: $blue;
 }
 .text-header {
   color: $beige;
