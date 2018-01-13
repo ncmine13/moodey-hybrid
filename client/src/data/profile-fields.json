@@ -1,0 +1,77 @@
+[
+  {
+    "required": [
+      {
+        "title": "gender",
+        "values": [
+          {
+            "label": "Cisgender Female",
+            "value": "cisFem"
+          },
+          {
+            "label": "Cisgender Male",
+            "value": "cisMan"
+          },
+          {
+            "label": "Gender Nonconforming",
+            "value": "genNonConf"
+          },
+          {
+            "label": "Gender Questioning",
+            "value": "genQuest"
+          },
+          {
+            "label": "Trans Man",
+            "value": "femToMal"
+          },
+          {
+            "label": "Trans Woman",
+            "value": "malToFem"
+          },
+          {
+            "label": "Other",
+            "value": "other"
+          }
+        ]
+      },
+      {
+        "title": "employment",
+        "values": [
+          {
+            "label": "Working full-time",
+            "value": "fullTime"
+          },
+          {
+            "label": "Working part-time",
+            "value": "partTime"
+          },
+          {
+            "label": "Caregiver",
+            "value": "careGiver"
+          },
+          {
+            "label": "Full-time student",
+            "value": "fullTimeStudent"
+          },
+          {
+            "label": "Part-time student",
+            "value": "partTimeStudent"
+          },
+          {
+            "label": "Working and in school",
+            "value": "workingAndStudent"
+          },
+          {
+            "label": "Not currently working or in school",
+            "value": "unemployed"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "optional": [
+
+    ]
+  }
+]

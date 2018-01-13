@@ -11,81 +11,38 @@
         <q-select v-model="selectEmployment" float-label="Employment Status" radio :options="employmentOptions"/>
       </div>
       <div class="profile__optional">
-        <p>These fields are optional, but we'd love if you filled them out so we can get a fuller picture of who you are.</p>
+        <p>These fields are optional, but we'd love if you filled them out so we can get a better understanding of you.</p>
       </div>
     </form>
   </div>
 </template>
 <script>
 import { QSelect } from 'quasar'
+import profileFields from '../../data/profile-fields.json'
+
 export default {
   name: 'ProfileForm',
   data () {
     return {
       firstName: '',
-      dob: Number,
       selectGender: '',
       selectEmployment: '',
-      genderOptions: [
-        {
-          label: 'Cisgender Female',
-          value: 'cisFem'
-        },
-        {
-          label: 'Cisgender Male',
-          value: 'cisMan'
-        },
-        {
-          label: 'Gender Nonconforming',
-          value: 'genNonConf'
-        },
-        {
-          label: 'Gender Questioning',
-          value: 'genQuest'
-        },
-        {
-          label: 'Trans Man',
-          value: 'femToMal'
-        },
-        {
-          label: 'Trans Woman',
-          value: 'malToFem'
-        },
-        {
-          label: 'Other',
-          value: 'other'
-        }
-      ],
-      employmentOptions: [
-        {
-          label: 'Working full-time',
-          value: 'fullTime'
-        },
-        {
-          label: 'Working part-time',
-          value: 'partTime'
-        },
-        {
-          label: 'Caregiver',
-          value: 'careGiver'
-        },
-        {
-          label: 'Full-time student',
-          value: 'fullTimeStudent'
-        },
-        {
-          label: 'Part-time student',
-          value: 'partTimeStudent'
-        },
-        {
-          label: 'Working and in school',
-          value: 'workingAndStudent'
-        },
-        {
-          label: 'Not currently working or in school',
-          value: 'unemployed'
-        }
-      ]
+      fields: profileFields,
+      dob: 0
+    }
+  },
+  computed: {
+    required () {
+      return this.fields.find(element => element.required)['required']
+    },
+    optional () {
+
+    },
+    genderOptions () {
+      return this.required.find(element => element.title === 'gender')['values']
+    },
+    employmentOptions () {
+      return this.required.find(element => element.title === 'employment')['values']
     }
   },
   components: {
@@ -93,6 +50,6 @@ export default {
   }
 }
 </script>
-<<style lang="sass-loader" scoped>
+<style lang="sass-loader" scoped>
 
 </style>
