@@ -22,12 +22,17 @@ export const store = new Vuex.Store({
     },
     setUser (state, user) {
       state.user = user
+    },
+    generateUserKebab (state) {
+      console.log('generating')
     }
   },
   actions: {
     setUserInfo ({commit}, userInfo) {
       commit('setToken', userInfo.token)
       commit('setUser', userInfo.user)
+      commit('generateUserKebab')
+      // when that's done, redirect to profile with user kebab
     }
   }
 })

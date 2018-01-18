@@ -16,6 +16,6 @@ export default {
 }
 </script>
 <style lang="sass-loader" scoped>
-/* @import '../assets/styles/variables.scss'; */
+@import '../../assets/styles/variables.scss';
 
 </style>

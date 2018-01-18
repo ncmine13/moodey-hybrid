@@ -9,11 +9,13 @@
   </div>
 </template>
 
+
+
 <script>
 import AuthenticationService from '../services/AuthenticationService'
 
 export default {
-  name: 'Register',
+  name: 'Login',
   data () {
     return {
       email: '',
