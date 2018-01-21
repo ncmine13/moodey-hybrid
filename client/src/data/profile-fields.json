@@ -70,8 +70,128 @@
     ]
   },
   {
+    "preferences" : [
+      {
+        "name": "weather",
+        "id": 0,
+        "selected": false
+      },
+      {
+        "name": "sexual activity",
+        "id": 1,
+        "selected": false
+      },
+      {
+        "name": "political climate",
+        "id": 2,
+        "selected": false
+      },
+      {
+        "name": "sleep",
+        "id": 3,
+        "selected": false
+      },
+      {
+        "name": "social life",
+        "id": 4,
+        "selected": false
+      },
+      {
+        "name": "menstrual cycle",
+        "id": 5,
+        "selected": false
+      },
+      {
+        "name": "economy",
+        "id": 6,
+        "selected": false
+      },
+      {
+        "name": "social media",
+        "id": 7,
+        "selected": false
+      },
+      {
+        "name": "hours working",
+        "id": 8,
+        "selected": false
+      }
+    ]
+  },
+  {
     "optional": [
-
+      {
+        "title": "What is the highest level of education you've received?",
+        "model": "education",
+        "options": [
+          {
+            "label": "elementary school",
+            "value": "elementary"
+          },
+          {
+            "label": "High school or equivalent",
+            "value": "high_school"
+          },
+          {
+            "label": "Associate's Degree (AAS/AAA)",
+            "value": "associate"
+          },
+          {
+            "label": "Bachelor's Degree (BA/BS)",
+            "value": "bachelor"
+          },
+          {
+            "label": "Master's Degree or equivalent (MA/MS/MBA)",
+            "value": "master"
+          },
+          {
+            "label": "Doctorate Degree or equivalent (PhD/MD/JD)",
+            "value": "doctor"
+          }
+        ]
+      },
+      {
+        "title": "Have you been diagnosed with any medical conditions?",
+        "model": "conditions",
+        "options": [
+          {
+            "label": "yes",
+            "value": "cond_yes"
+          },
+          {
+            "label": "no",
+            "value": "cond_no"
+          }
+        ]
+      },
+      {
+        "title": "Do you take any medications?",
+        "model": "meds",
+        "options": [
+          {
+            "label": "yes",
+            "value": "meds_yes"
+          },
+          {
+            "label": "no",
+            "value": "meds_no"
+          }
+        ]
+      },
+      {
+        "title": "Do you have any pets?",
+        "model": "pets",
+        "options": [
+          {
+            "label": "yes",
+            "value": "pets_yes"
+          },
+          {
+            "label": "no",
+            "value": "pets_no"
+          }
+        ]
+      }
     ]
   }
 ]

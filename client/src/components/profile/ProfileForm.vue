@@ -1,19 +1,10 @@
 <template>
   <div class="form__wrapper">
     <form>
-      <div class="profile__required">
-        <p>Please fill out these fields so we can get a better idea of you.</p>
-        <label for="first-name"></label>
-        <input id="first-name" type="text" v-model="firstName"/>
-        <q-select v-model="selectGender" float-label="Gender Identity" radio :options="genderOptions" />
-        <label for="dob"></label>
-        <input id="dob" type="date" v-model="dob">
-        <q-select v-model="selectEmployment" float-label="Employment Status" radio :options="employmentOptions"/>
-      </div>
-      <div class="profile__optional">
-        <p>These fields are optional, but we'd love if you filled them out so we can get a better understanding of you.</p>
-        <preferences-component v-bind:profileFields="profileFields"></preferences-component>
-      </div>
+      <required-component v-bind:profileFields="profileFields"></required-component>
+      <preferences-component v-bind:profileFields="profileFields"></preferences-component>
+      <optional-component v-bind:profileFields="profileFields"></optional-component>
+      <div class="flex-centered"><input type="submit" placeholder="submit" class="submit-btn"/></div>
     </form>
   </div>
 </template>
@@ -21,6 +12,8 @@
 import { QSelect } from 'quasar'
 import profileFields from '../../data/profile-fields.json'
 import preferencesComponent from './Preferences'
+import requiredComponent from './Required'
+import optionalComponent from './Optional'
 
 export default {
   name: 'ProfileForm',
@@ -37,9 +30,6 @@ export default {
     required () {
       return this.profileFields.find(element => element.required)['required']
     },
-    optional () {
-
-    },
     genderOptions () {
       return this.required.find(element => element.title === 'gender')['values']
     },
@@ -49,7 +39,9 @@ export default {
   },
   components: {
     QSelect,
-    preferencesComponent
+    preferencesComponent,
+    requiredComponent,
+    optionalComponent
   }
 }
 </script>

@@ -4,7 +4,7 @@
     <div class="optional-wrapper">
       <div><label>What is your current occupation?</label> <input type="text" v-model="occupation" /> </div>
       <div v-for="item in optional" :key="item.id">
-        <div>{{ item.text }}</div>
+        <div>{{ item.title }}</div>
         <q-select v-model='item.model' :options="item['options']" />
       </div>
     </div>
@@ -50,10 +50,11 @@ export default {
         padding-bottom: $spacer * 0.5;
       }
       input {
-        border: 1px solid gray;
+        border: none;
         width: 100%;
         padding: 10px;
-        border-radius: 3px;
+        border-bottom: 1px solid $gray;
+        border-radius: 0;
       }
       & > div {
         padding: $spacer 0;

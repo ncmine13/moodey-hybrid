@@ -30,7 +30,7 @@ export default {
 
 .form {
   &__preferences {
-    margin-top: $spacer * 2;
+    margin-top: $spacer;
     &--wrapper {
       text-transform: uppercase;
       display: flex;
