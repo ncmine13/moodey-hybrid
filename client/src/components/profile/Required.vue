@@ -1,26 +1,69 @@
 <template>
   <div class="form__required">
     <p class="section-header">Please fill out these fields so we can get a better understanding of you.</p>
-    <div class="form__required--input flex-centered"><label for="first-name">First Name:</label><input id="first-name" type="text" placeholder="Enter your name" v-model="firstName"/></div>
-    <div class="form__required--input flex-centered"><label for="dob">Date of Birth:</label><input id="dob" type="text" placeholder="mm/dd/yyyy" v-model="dob"></div>
-    <div class="form__required--select"><q-select v-model="selectGender" float-label="Gender Identity" radio :options="genderOptions"/></div>
-    <div class="form__required--select"><q-select v-model="selectEmployment" float-label="Employment Status" radio :options="employmentOptions"/></div>
+    <div class="form__required--input flex-centered">
+      <label for="first-name">First Name:</label>
+      <input type="text" placeholder="Enter your name" v-model="sync_firstName"/>
+    </div>
+    <div class="form__required--input flex-centered">
+      <label for="dob">Date of Birth:</label>
+      <input type="text" placeholder="mm/dd/yyyy" v-model="sync_dob">
+    </div>
+    <div class="form__required--select">
+      <q-select v-model="sync_gender" float-label="Gender Identity" radio :options="genderOptions"/>
+    </div>
+    <div class="form__required--select">
+      <q-select v-model="sync_employment" float-label="Employment Status" radio :options="employmentOptions"/>
+    </div>
   </div>
 </template>
 
 <script>
 import { QSelect } from 'quasar'
+import profileFields from '../../data/profile-fields.json'
+
 export default {
   name: 'Required',
   data () {
     return {
-      firstName: '',
       selectGender: '',
       selectEmployment: '',
-      dob: ''
+      profileFields: profileFields
     }
   },
   computed: {
+    sync_firstName: {
+      get () {
+        return this.firstName
+      },
+      set (val) {
+        this.$emit('update:firstName', val)
+      }
+    },
+    sync_dob: {
+      get () {
+        return this.dob
+      },
+      set (val) {
+        this.$emit('update:dob', val)
+      }
+    },
+    sync_gender: {
+      get () {
+        return this.gender
+      },
+      set (val) {
+        this.$emit('update:gender', val)
+      }
+    },
+    sync_employment: {
+      get () {
+        return this.employment
+      },
+      set (val) {
+        this.$emit('update:employment', val)
+      }
+    },
     required () {
       return this.profileFields.find(element => element.required)['required']
     },
@@ -31,7 +74,7 @@ export default {
       return this.required.find(element => element.title === 'employment')['values']
     }
   },
-  props: ['profileFields'],
+  props: ['firstName', 'dob'],
   components: {
     QSelect
   }

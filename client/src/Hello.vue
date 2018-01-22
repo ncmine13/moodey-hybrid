@@ -43,7 +43,6 @@
     -->
     <div class="layout-padding logo-container non-selectable no-pointer-events">
       <div class="logo" :style="position">
-        <img src="~assets/quasar-logo-full.svg">
       </div>
     </div>
   </q-layout>

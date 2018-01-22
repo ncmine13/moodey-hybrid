@@ -2,7 +2,7 @@
   <q-layout view="hHr LpR lFf">
     <!-- header on every page -->
     <q-toolbar slot="header">
-      <div><img class="smile-logo pointer" src="../assets/smilez.png"/></div>
+      <div><img class="smile-logo pointer" src="../assets/smile2.png"/></div>
       <q-toolbar-title></q-toolbar-title>
       <div v-on:click="logoutUser()"> {{ logout }} </div>
     </q-toolbar>
@@ -31,7 +31,7 @@ export default {
   computed: {
     userRoute () {
       if (this.$store.state.isUserLoggedIn) {
-        return '/home/' + this.$store.state.user.id
+        return '/home/' + this.$store.state.kebab
       }
       else {
         return ''

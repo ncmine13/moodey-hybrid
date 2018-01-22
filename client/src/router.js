@@ -17,7 +17,9 @@ export default new VueRouter({
   routes: [
     { path: '/register', component: load('Register') },
     { path: '/login', component: load('Login') },
-    { path: '/profile', component: loadSub('profile', 'ProfileWrapper') },
+    { path: '/profile/:id',
+      component: loadSub('profile', 'ProfileWrapper')
+    },
     {
       path: '/home/:id',
       component: load('Home'),

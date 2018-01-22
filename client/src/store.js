@@ -8,7 +8,8 @@ export const store = new Vuex.Store({
   state: {
     token: null,
     user: null,
-    isUserLoggedIn: false
+    isUserLoggedIn: false,
+    kebab: String
   },
   mutations: {
     setToken (state, token) {
@@ -23,16 +24,18 @@ export const store = new Vuex.Store({
     setUser (state, user) {
       state.user = user
     },
-    generateUserKebab (state) {
-      console.log('generating')
+    generateUserKebab (state, user) {
+      let kebab = user.email.slice(0, 4) + user.id
+      state.kebab = kebab
     }
   },
   actions: {
-    setUserInfo ({commit}, userInfo) {
-      commit('setToken', userInfo.token)
-      commit('setUser', userInfo.user)
-      commit('generateUserKebab')
-      // when that's done, redirect to profile with user kebab
+    setUserInfo (context, userInfo) {
+      context.commit('setToken', userInfo.token)
+      context.commit('setUser', userInfo.user)
+      if (userInfo.user) {
+        context.commit('generateUserKebab', userInfo.user)
+      }
     }
   }
 })

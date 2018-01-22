@@ -1,11 +1,11 @@
 <template>
   <div class="registration__wrapper site-width">
     <h1>Sign up for your account.</h1>
-    <!-- <form name="user-registration" autocomplete="off"> -->
+    <form name="user-registration" autocomplete="off">
     <div><input class="input-styles" type="email" name="email" placeholder="email" v-model="email"/></div>
     <div><input class="input-styles" autocomplete="new-password" type="password" name="password" placeholder="password" v-model="password"/></div>
     <button class="input-styles" v-on:click="register()">Register.</button>
-    <!-- </form> -->
+    </form>
     <button class="input-styles" @click="swap()"> Have an account? Log in. </button>
     <div class="error" v-html="error"></div>
   </div>
@@ -31,7 +31,7 @@ export default {
           password: this.password
         })
         this.$store.dispatch('setUserInfo', response.data)
-        this.$router.push('/profile')
+        this.$router.push('profile/' + this.$store.state.kebab)
       }
       catch (err) {
         this.error = err.response.data.error

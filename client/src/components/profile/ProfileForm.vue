@@ -1,50 +1,55 @@
 <template>
   <div class="form__wrapper">
-    <form>
-      <required-component v-bind:profileFields="profileFields"></required-component>
-      <preferences-component v-bind:profileFields="profileFields"></preferences-component>
-      <optional-component v-bind:profileFields="profileFields"></optional-component>
-      <div class="flex-centered"><input type="submit" placeholder="submit" class="submit-btn"/></div>
-    </form>
+    <required-component :firstName.sync="required.firstName" :dob.sync="required.dob" :gender.sync="required.genderSelection" :employment.sync="required.employmentSelection"></required-component>
+    <!-- <preferences-component v-bind:profileFields="profileFields"></preferences-component> -->
+    <!-- <optional-component v-bind:profileFields="profileFields"></optional-component> -->
+    <div class="flex-centered"><input type="submit" placeholder="submit" class="submit-btn" @click="submitUserPrefs()" /></div>
   </div>
 </template>
+
 <script>
 import { QSelect } from 'quasar'
-import profileFields from '../../data/profile-fields.json'
-import preferencesComponent from './Preferences'
+// import PreferencesService from '../../services/PreferencesService'
+// import preferencesComponent from './Preferences'
 import requiredComponent from './Required'
-import optionalComponent from './Optional'
+// import optionalComponent from './Optional'
 
 export default {
   name: 'ProfileForm',
   data () {
     return {
-      firstName: '',
-      selectGender: '',
-      selectEmployment: '',
-      profileFields: profileFields,
-      dob: 0
+      required: {
+        firstName: '',
+        dob: '',
+        genderSelection: [],
+        employmentSelection: []
+      }
     }
   },
-  computed: {
-    required () {
-      return this.profileFields.find(element => element.required)['required']
-    },
-    genderOptions () {
-      return this.required.find(element => element.title === 'gender')['values']
-    },
-    employmentOptions () {
-      return this.required.find(element => element.title === 'employment')['values']
+  methods: {
+    async submitUserPrefs () {
+      try {
+        // await PreferencesService.submitUserPrefs({
+
+        // })
+        this.$router.push('/home/' + this.$store.state.kebab + '/check')
+      }
+      catch (err) {
+
+      }
     }
   },
   components: {
     QSelect,
-    preferencesComponent,
-    requiredComponent,
-    optionalComponent
+    // preferencesComponent,
+    requiredComponent
+    // optionalComponent
   }
 }
 </script>
 <style lang="sass-loader" scoped>
+  .submit-btn {
+    margin-top: 40px;
+  }
 
 </style>
