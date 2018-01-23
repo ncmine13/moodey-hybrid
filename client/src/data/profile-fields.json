@@ -5,6 +5,10 @@
         "title": "gender",
         "values": [
           {
+            "label": "select one",
+            "value": ""
+          },
+          {
             "label": "Cisgender Female",
             "value": "cisFem"
           },
@@ -37,6 +41,10 @@
       {
         "title": "employment",
         "values": [
+          {
+            "label": "select one",
+            "value": ""
+          },
           {
             "label": "Working full-time",
             "value": "fullTime"
@@ -122,8 +130,12 @@
     "optional": [
       {
         "title": "What is the highest level of education you've received?",
-        "model": "education",
+        "name": "sync_education",
         "options": [
+          {
+            "label": "select one",
+            "value": ""
+          },
           {
             "label": "elementary school",
             "value": "elementary"
@@ -152,8 +164,12 @@
       },
       {
         "title": "Have you been diagnosed with any medical conditions?",
-        "model": "conditions",
+        "name": "sync_conditions",
         "options": [
+          {
+            "label": "select one",
+            "value": ""
+          },
           {
             "label": "yes",
             "value": "cond_yes"
@@ -166,8 +182,12 @@
       },
       {
         "title": "Do you take any medications?",
-        "model": "meds",
+        "name": "sync_meds",
         "options": [
+          {
+            "label": "select one",
+            "value": ""
+          },
           {
             "label": "yes",
             "value": "meds_yes"
@@ -180,8 +200,12 @@
       },
       {
         "title": "Do you have any pets?",
-        "model": "pets",
+        "name": "sync_pets",
         "options": [
+          {
+            "label": "select one",
+            "value": ""
+          },
           {
             "label": "yes",
             "value": "pets_yes"

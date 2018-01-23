@@ -10,6 +10,10 @@
 <script>
 export default {
   name: 'Preferences',
+  data () {
+    return {
+    }
+  },
   computed: {
     correlationPreferences () {
       return this.profileFields.find(element => element.preferences)['preferences']

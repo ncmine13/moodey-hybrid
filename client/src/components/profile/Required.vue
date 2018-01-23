@@ -10,27 +10,19 @@
       <input type="text" placeholder="mm/dd/yyyy" v-model="sync_dob">
     </div>
     <div class="form__required--select">
-      <q-select v-model="sync_gender" float-label="Gender Identity" radio :options="genderOptions"/>
+      <q-select v-model="sync_gender" separator stack-label="Gender Identity" radio :options="genderOptions"/>
     </div>
     <div class="form__required--select">
-      <q-select v-model="sync_employment" float-label="Employment Status" radio :options="employmentOptions"/>
+      <q-select v-model="sync_employment" separator stack-label="Employment Status" radio :options="employmentOptions"/>
     </div>
   </div>
 </template>
 
 <script>
 import { QSelect } from 'quasar'
-import profileFields from '../../data/profile-fields.json'
 
 export default {
   name: 'Required',
-  data () {
-    return {
-      selectGender: '',
-      selectEmployment: '',
-      profileFields: profileFields
-    }
-  },
   computed: {
     sync_firstName: {
       get () {
@@ -74,7 +66,9 @@ export default {
       return this.required.find(element => element.title === 'employment')['values']
     }
   },
-  props: ['firstName', 'dob'],
+  methods: {
+  },
+  props: ['firstName', 'dob', 'gender', 'employment', 'profileFields'],
   components: {
     QSelect
   }

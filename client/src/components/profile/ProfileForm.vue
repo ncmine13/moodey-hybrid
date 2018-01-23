@@ -1,19 +1,23 @@
 <template>
   <div class="form__wrapper">
     <div class="warning" v-if="displayWarning"> {{ warning }} </div>
-    <required-component :firstName.sync="required.firstName" :dob.sync="required.dob" :gender.sync="required.genderSelection" :employment.sync="required.employmentSelection"></required-component>
-    <!-- <preferences-component v-bind:profileFields="profileFields"></preferences-component> -->
-    <!-- <optional-component v-bind:profileFields="profileFields"></optional-component> -->
+    <required-component :firstName.sync="required.firstName" :dob.sync="required.dob" :gender.sync="required.genderSelection" :employment.sync="required.employmentSelection" :profileFields="profileFields"></required-component>
+
+    <preferences-component :profileFields="profileFields"></preferences-component>
+
+    <optional-component :profileFields="profileFields" :education.sync="optional.education" :pets.sync="optional.pets" :meds.sync="optional.meds" :conditions.sync="optional.conditions" :occupation.sync="optional.occupation"></optional-component>
+
     <div class="flex-centered"><input type="submit" placeholder="submit" class="submit-btn" @click="submitUserPrefs()" /></div>
   </div>
 </template>
 
 <script>
 import { QSelect } from 'quasar'
+import profileFields from '../../data/profile-fields'
 // import PreferencesService from '../../services/PreferencesService'
-// import preferencesComponent from './Preferences'
+import preferencesComponent from './Preferences'
 import requiredComponent from './Required'
-// import optionalComponent from './Optional'
+import optionalComponent from './Optional'
 
 export default {
   name: 'ProfileForm',
@@ -22,11 +26,25 @@ export default {
       required: {
         firstName: '',
         dob: '',
-        genderSelection: [],
-        employmentSelection: []
+        genderSelection: '',
+        employmentSelection: ''
+      },
+      optional: {
+        education: '',
+        pets: '',
+        meds: '',
+        conditions: '',
+        occupation: ''
       },
       displayWarning: false,
-      warning: 'Please fill out all required fields.'
+      warning: 'Please fill out all required fields.',
+      profileFields: profileFields
+    }
+  },
+  computed: {
+    selectedPreferences () {
+      let prefs = this.profileFields.find(element => element.preferences)['preferences']
+      return prefs.filter(pref => pref.selected)
     }
   },
   methods: {
@@ -44,6 +62,7 @@ export default {
       }
     },
     validateRequiredFields () {
+      // can replace with vuelidate npm package
       for (var field in this.required) {
         let value = this.required[field]
         if (value === 0 || value === '') {
@@ -57,9 +76,9 @@ export default {
   },
   components: {
     QSelect,
-    // preferencesComponent,
-    requiredComponent
-    // optionalComponent
+    preferencesComponent,
+    requiredComponent,
+    optionalComponent
   }
 }
 </script>
