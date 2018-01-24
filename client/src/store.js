@@ -36,6 +36,9 @@ export const store = new Vuex.Store({
       if (userInfo.user) {
         context.commit('generateUserKebab', userInfo.user)
       }
+    },
+    logUserPreferences (context, prefs) {
+      console.log(prefs)
     }
   }
 })

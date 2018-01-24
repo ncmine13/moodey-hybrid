@@ -1,8 +1,9 @@
 //  import authentification module
 const AuthenticationController = require('./controllers/AuthenticationController')
-
 //  import module that uses Joi to ensure valid email address is used and password follows requirements, error messages
 const AuthenticationControllerPolicy = require('./policies/AuthenticationControllerPolicy')
+
+const ProfileController = require('./controllers/ProfileController')
 
 module.exports = (app) => {
   app.post('/register',
@@ -11,4 +12,7 @@ module.exports = (app) => {
 
   app.post('/login',
     AuthenticationController.login)
+
+  app.post('/profile',
+    ProfileController.genProfile)
 }

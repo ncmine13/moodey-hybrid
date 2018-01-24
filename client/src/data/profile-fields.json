@@ -172,11 +172,11 @@
           },
           {
             "label": "yes",
-            "value": "cond_yes"
+            "value": true
           },
           {
             "label": "no",
-            "value": "cond_no"
+            "value": false
           }
         ]
       },
@@ -190,11 +190,11 @@
           },
           {
             "label": "yes",
-            "value": "meds_yes"
+            "value": true
           },
           {
             "label": "no",
-            "value": "meds_no"
+            "value": false
           }
         ]
       },
@@ -208,11 +208,11 @@
           },
           {
             "label": "yes",
-            "value": "pets_yes"
+            "value": true
           },
           {
             "label": "no",
-            "value": "pets_no"
+            "value": false
           }
         ]
       }

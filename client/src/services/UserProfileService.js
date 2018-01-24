@@ -2,6 +2,7 @@ import api from './api'
 
 export default {
   submitUserPrefs (prefs) {
-    return api().post('preferences')
+    console.log(prefs)
+    return api().post('profile', prefs)
   }
 }

@@ -7,14 +7,14 @@
 
     <optional-component :profileFields="profileFields" :education.sync="optional.education" :pets.sync="optional.pets" :meds.sync="optional.meds" :conditions.sync="optional.conditions" :occupation.sync="optional.occupation"></optional-component>
 
-    <div class="flex-centered"><input type="submit" placeholder="submit" class="submit-btn" @click="submitUserPrefs()" /></div>
+    <div class="flex-centered"><input type="submit" placeholder="submit" class="submit-btn" @click="submitUserInfo()" /></div>
   </div>
 </template>
 
 <script>
 import { QSelect } from 'quasar'
 import profileFields from '../../data/profile-fields'
-// import PreferencesService from '../../services/PreferencesService'
+import profileService from '../../services/UserProfileService'
 import preferencesComponent from './Preferences'
 import requiredComponent from './Required'
 import optionalComponent from './Optional'
@@ -38,7 +38,8 @@ export default {
       },
       displayWarning: false,
       warning: 'Please fill out all required fields.',
-      profileFields: profileFields
+      profileFields: profileFields,
+      error: null
     }
   },
   computed: {
@@ -48,16 +49,29 @@ export default {
     }
   },
   methods: {
-    async submitUserPrefs () {
+    async submitUserInfo () {
       if (this.validateRequiredFields()) {
+        let userInfo = {
+          id: this.$store.state.user.id,
+          name: this.required.firstName,
+          dob: this.required.dob,
+          genderId: this.required.genderSelection,
+          employment: this.required.employmentSelection,
+          prefs: this.selectedPreferences,
+          occupation: this.optional.occupation,
+          education: this.optional.education,
+          conditions: this.optional.conditions,
+          meds: this.optional.meds,
+          pets: this.optional.pets
+        }
         try {
-          // await PreferencesService.submitUserPrefs({
-
-          // })
-          this.$router.push('/home/' + this.$store.state.kebab + '/check')
+          const response = await profileService.submitUserPrefs(userInfo)
+          this.$store.dispatch('logUserPreferences', response)
+          // this.$router.push('/home/' + this.$store.state.kebab + '/check')
         }
         catch (err) {
-
+          console.log('BIg OL ErRoR')
+          // this.error = err.response.data.error
         }
       }
     },

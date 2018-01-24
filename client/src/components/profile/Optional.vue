@@ -7,22 +7,20 @@
         <input type="text" v-model="sync_occupation" />
       </div>
       <!-- while I'm figuring out dynamic adding of v-model, I will unfortunately hardcode :( -->
-      <!-- <div v-for="item in optional" :key="item.id"> -->
-      <!-- </div> -->
       <div>
-        <div>"What is the highest level of education you've received?"</div>
+        <div>What is the highest level of education you've received?</div>
         <q-select v-model="sync_education" separator radio :options="educationOptions" />
       </div>
       <div>
-        <div>"Have you been diagnosed with any medical conditions?"</div>
+        <div>Have you been diagnosed with any medical conditions?</div>
         <q-select v-model="sync_conditions" separator radio :options="conditionsOptions" />
       </div>
       <div>
-        <div>"Do you take any medications?"</div>
+        <div>Do you take any medications?</div>
         <q-select v-model="sync_meds" separator radio :options="medsOptions" />
       </div>
       <div>
-        <div>"Do you have any pets?"</div>
+        <div>Do you have any pets?</div>
         <q-select v-model="sync_pets" separator radio :options="petsOptions" />
       </div>
     </div>
