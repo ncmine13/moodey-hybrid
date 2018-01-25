@@ -2,11 +2,8 @@
   <div class="form__wrapper">
     <div class="warning" v-if="displayWarning"> {{ warning }} </div>
     <required-component :firstName.sync="required.firstName" :dob.sync="required.dob" :gender.sync="required.genderSelection" :employment.sync="required.employmentSelection" :profileFields="profileFields"></required-component>
-
     <preferences-component :profileFields="profileFields"></preferences-component>
-
     <optional-component :profileFields="profileFields" :education.sync="optional.education" :pets.sync="optional.pets" :meds.sync="optional.meds" :conditions.sync="optional.conditions" :occupation.sync="optional.occupation"></optional-component>
-
     <div class="flex-centered"><input type="submit" placeholder="submit" class="submit-btn" @click="submitUserInfo()" /></div>
   </div>
 </template>
@@ -45,14 +42,14 @@ export default {
   computed: {
     selectedPreferences () {
       let prefs = this.profileFields.find(element => element.preferences)['preferences']
-      return prefs.filter(pref => pref.selected)
+      return JSON.stringify(prefs.filter(pref => pref.selected).map(pref => pref.id))
     }
   },
   methods: {
     async submitUserInfo () {
       if (this.validateRequiredFields()) {
         let userInfo = {
-          id: this.$store.state.user.id,
+          userId: this.$store.state.user.id,
           name: this.required.firstName,
           dob: this.required.dob,
           genderId: this.required.genderSelection,
@@ -66,11 +63,12 @@ export default {
         }
         try {
           const response = await profileService.submitUserPrefs(userInfo)
-          this.$store.dispatch('logUserPreferences', response)
+          console.log('response!!', response.data)
+          // this.$store.dispatch('logUserPreferences', response)
           // this.$router.push('/home/' + this.$store.state.kebab + '/check')
         }
         catch (err) {
-          console.log('BIg OL ErRoR')
+          console.log('BIg OL ErRrorororoR', err)
           // this.error = err.response.data.error
         }
       }
