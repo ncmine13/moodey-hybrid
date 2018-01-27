@@ -130,7 +130,7 @@
     "optional": [
       {
         "title": "What is the highest level of education you've received?",
-        "name": "sync_education",
+        "propName": "education",
         "options": [
           {
             "label": "select one",
@@ -164,7 +164,7 @@
       },
       {
         "title": "Have you been diagnosed with any medical conditions?",
-        "name": "sync_conditions",
+        "propName": "conditions",
         "options": [
           {
             "label": "select one",
@@ -182,7 +182,7 @@
       },
       {
         "title": "Do you take any medications?",
-        "name": "sync_meds",
+        "propName": "meds",
         "options": [
           {
             "label": "select one",
@@ -200,7 +200,7 @@
       },
       {
         "title": "Do you have any pets?",
-        "name": "sync_pets",
+        "propName": "pets",
         "options": [
           {
             "label": "select one",

@@ -1,9 +1,9 @@
 <template>
   <div class="form__wrapper">
     <div class="warning" v-if="displayWarning"> {{ warning }} </div>
-    <required-component :firstName.sync="required.firstName" :dob.sync="required.dob" :gender.sync="required.genderSelection" :employment.sync="required.employmentSelection" :profileFields="profileFields"></required-component>
+    <required-component :firstName.sync="firstName" :dob.sync="dob" :gender.sync="genderSelection" :employment.sync="employmentSelection" :profileFields="profileFields"></required-component>
     <preferences-component :profileFields="profileFields"></preferences-component>
-    <optional-component :profileFields="profileFields" :education.sync="optional.education" :pets.sync="optional.pets" :meds.sync="optional.meds" :conditions.sync="optional.conditions" :occupation.sync="optional.occupation"></optional-component>
+    <optional-component :profileFields="profileFields" :education.sync="education" :pets.sync="pets" :meds.sync="meds" :conditions.sync="conditions" :occupation.sync="occupation"></optional-component>
     <div class="flex-centered"><input type="submit" placeholder="submit" class="submit-btn" @click="submitUserInfo()" /></div>
   </div>
 </template>
@@ -20,19 +20,15 @@ export default {
   name: 'ProfileForm',
   data () {
     return {
-      required: {
-        firstName: '',
-        dob: '',
-        genderSelection: '',
-        employmentSelection: ''
-      },
-      optional: {
-        education: '',
-        pets: '',
-        meds: '',
-        conditions: '',
-        occupation: ''
-      },
+      firstName: '',
+      dob: '',
+      genderSelection: '',
+      employmentSelection: '',
+      education: '',
+      pets: '',
+      meds: '',
+      conditions: '',
+      occupation: '',
       displayWarning: false,
       warning: 'Please fill out all required fields.',
       profileFields: profileFields,
