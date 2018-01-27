@@ -6,8 +6,9 @@
         <label>What is your current occupation?</label>
         <input type="text" v-model="sync_occupation" />
       </div>
+      <q-select ></q-select>
       <!-- while I'm figuring out dynamic adding of v-model, I will unfortunately hardcode :( -->
-      <div>
+      <!-- <div>
         <div>What is the highest level of education you've received?</div>
         <q-select v-model="sync_education" separator radio :options="educationOptions" />
       </div>
@@ -22,7 +23,7 @@
       <div>
         <div>Do you have any pets?</div>
         <q-select v-model="sync_pets" separator radio :options="petsOptions" />
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
@@ -31,7 +32,7 @@
 import { QSelect } from 'quasar'
 export default {
   name: 'Optional',
-  computed: {
+  watch: {
     sync_education: {
       get () {
         return this.education
@@ -71,7 +72,9 @@ export default {
       set (val) {
         this.$emit('update:pets', val)
       }
-    },
+    }
+  },
+  computed: {
     conditionsOptions () {
       return this.optional.find(element => element.name === 'sync_conditions')['options']
     },

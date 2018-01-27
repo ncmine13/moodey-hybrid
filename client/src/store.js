@@ -9,7 +9,8 @@ export const store = new Vuex.Store({
     token: null,
     user: null,
     isUserLoggedIn: false,
-    kebab: String
+    kebab: String,
+    prefs: null
   },
   mutations: {
     setToken (state, token) {
